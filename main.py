@@ -1,8 +1,16 @@
+import sys
 import contextlib
 import ctypes
+import time
+import os
+from PIL import ImageTk, Image
+from tkinter import *
+from tkinter.font import Font
+import webbrowser
+from PIL import ImageTk, Image
 
 with contextlib.redirect_stdout(None):  # Makes no pygame prompt appear
-    pass
+    import launchpad_py as launchpad
 
 import warnings
 
@@ -200,3 +208,10 @@ def launchpadtrigger(currentlp):
 
 def mapkey():
     pass
+
+
+def checkargs(arguments):
+    if len(arguments) > 1: # If there are arguments that means that we want to open the preset straight away!
+        load_preset(arguments[1])
+    
+checkargs(sys.argv)
